@@ -9,18 +9,53 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
+    <div class="form-hidden">
+        <form class="new-book">
+            <button type="button" class="form-close">x</button>
+            <fieldset>
+                <legend>New Book</legend>
+                <div class="container">
+                    <div class="flex-column">
+                        <label for="title" class="label-class">
+                            Title
+                            <input type="text" name="title" id="title">
+                        </label>
+                        <label for="author" class="label-class">
+                            Author
+                            <input type="text" name="author" id="author">
+                        </label>
+                        <label for="pages" class="label-class"> 
+                            Pages
+                            <input type="text" name="pages" id="pages">
+                        </label>
+                        <label for="readStatus" class="label-class">
+                            Mark as Read
+                            <input type="checkbox" name="readStatus" id="readStatus">
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit">Add Book</button>
+        </form>
+    </div>
+    <div class="overlay"></div>
     <header class="header">
         <div>Library</div>
     </header>
     <main class="main-content">
         <div class="button-container">
-            <button>+ New Book</button>
+            <button class="add-book">+ New Book</button>
         </div>
         <div class="library">
             <div class="card">
-                <p>Title</p>
-                <p>Author</p>
-                <p>Pages</p>
+                <div class="details">
+                    <h3>Title</h3>
+                    <p>Author</p>
+                    <p>Pages</p>
+                </div>
+                <div class="image">
+                    <img src="./book_cover_1.jpg" alt="image">
+                </div>
                 <p class="toggle-label">Mark as Read</p>
                 <label class="switch">
                     <input type="checkbox">
