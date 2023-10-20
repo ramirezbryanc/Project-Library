@@ -1,6 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-* {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	/* font: inherit; */
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* End of meyer reset*/
+
+/* CSS Variables */
+
+:root {
+  --card-border-radius: 8px;
+  --remove-button-color: #ffffff;
+  --book-title-font: 1.5rem;
+  --card-padding: 2rem;
+}
+
+*, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
@@ -10,6 +70,64 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0px;
+}
+
+/* New Book Form   */
+
+.new-book {
+  margin: auto;
+  padding: 1.6rem;
+  background-color: #f1eff1;
+  border-radius: 8px;
+}
+
+.form-hidden {
+  z-index: 999;
+  display: none;
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+}
+
+.form-close {
+  position: relative;
+  left: 100%;
+  top: -1.6rem;
+  border: none;
+}
+.form-hidden.active {
+  z-index: 999;
+  display: flex;
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label-class {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* End of form styles */
+
+.overlay {
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .header {
@@ -57,23 +175,50 @@ body {
 
 .library {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 0 10vw;
 }
 
 .card {
-    border: 1px solid black;
-    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    height: 300px;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
     position: relative;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.details h3 {
+  font-size: large;
+}
+
+.image {
+  height: 99%;
+}
+ .image img {
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 /* Slider Toggle */
 
 .toggle-label {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     margin: 0px;
-    right: 36px;
+    right: 51px;
 }
 /* The switch - the box around the slider */
 .switch {
@@ -81,8 +226,8 @@ body {
     display: inline-block;
     width: 34px;
     height: 19px;
-    bottom: 0;
-    right: 0;
+    bottom: 5px;
+    right: 5px;
     --transition-delay: 0.25s;
   }
   
@@ -102,6 +247,7 @@ body {
     background-color: #ccc;
     -webkit-transition: var(--transition-delay);
     transition: var(--transition-delay);
+    border-radius: 34px;
   }
   
   .slider:before {
@@ -114,6 +260,7 @@ body {
     background-color: white;
     -webkit-transition: var(--transition-delay);
     transition: var(--transition-delay);
+    border-radius: 50%;
   }
   
   input:checked + .slider {
@@ -129,18 +276,18 @@ body {
     -ms-transform: translateX(15px);
     transform: translateX(15px);
   }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
 
   .remove {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
   }
+
+  .remove:hover {
+    transform: scale(2);
+    color: red;
+  }
+
+  
