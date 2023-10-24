@@ -8,4 +8,4 @@ The library is pre-populated with four template books. Each of which are associa
 
 Check out the live app here: [Live App](https://bigbossbry.github.io/Project-Library/)
 
-If you encounter any bugs, you can kindly let me know by messaging me on Discord. [Discord](https://discordapp.com/users/510735962243072006)
+If you encounter any bugs, you can kindly let me know by messaging me on Discord. [Discord](https://discordapp.com/users/bigbossbry)
