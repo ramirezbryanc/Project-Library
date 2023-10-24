@@ -114,7 +114,7 @@ function deleteThisCard (clickEvent) {
 }
 
 function listenClick(target) {
-    target.addEventListener('mousedown',deleteThisCard);
+    target.addEventListener('click',deleteThisCard);
 }
 
 myLibrary.forEach(createCard)
@@ -131,7 +131,7 @@ function toggleForm () {
 
 const formClose = document.querySelector('.form-close');
 
-addNewBook.addEventListener('mousedown', toggleForm);
-formClose.addEventListener('mousedown', toggleForm);
+addNewBook.addEventListener('click', toggleForm);
+formClose.addEventListener('click', toggleForm);
 
 // Need to add a function to remove an object from the library array.
