@@ -290,7 +290,7 @@ body {
     transform: translateX(15px);
   }
 
-  .remove {
+  .remove, .form-close {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -298,7 +298,7 @@ body {
     border: none;
   }
 
-  .remove:hover {
+  .remove:hover, .form-close:hover {
     transform: scale(2);
     color: red;
   }
