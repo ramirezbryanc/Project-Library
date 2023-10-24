@@ -11,31 +11,24 @@
 <body>
     <div class="form-hidden">
         <form class="new-book">
-            <button type="button" class="form-close">x</button>
-            <fieldset>
-                <legend>New Book</legend>
-                <div class="container">
-                    <div class="flex-column">
-                        <label for="title" class="label-class">
-                            Title
-                            <input type="text" name="title" id="title">
-                        </label>
-                        <label for="author" class="label-class">
-                            Author
-                            <input type="text" name="author" id="author">
-                        </label>
-                        <label for="pages" class="label-class"> 
-                            Pages
-                            <input type="text" name="pages" id="pages">
-                        </label>
-                        <label for="readStatus" class="label-class">
-                            Mark as Read
-                            <input type="checkbox" name="readStatus" id="readStatus">
-                        </label>
-                    </div>
-                </div>
-            </fieldset>
-            <button type="submit">Add Book</button>
+            <button type="button" class="form-close remove">x</button>
+            <h2>New Book</h2>
+            <label for="title" class="label-class">
+                <input type="text" name="title" id="title" placeholder="Title" required>
+            </label>
+            <label for="author" class="label-class">
+                <input type="text" name="author" id="author" placeholder="Author" required>
+            </label>
+            <label for="pages" class="label-class">
+                <input type="text" name="pages" id="pages" placeholder="Pages" required> 
+            </label>
+            <label for="readStatus" class="label-class read-class">
+                Mark as Read
+                <input type="checkbox" name="readStatus" id="readStatus" class="read-check">
+            </label>
+            <label for="#" class="label-class submit-book">
+                <button type="submit">Add Book</button>
+            </label>
         </form>
     </div>
     <div class="overlay"></div>
